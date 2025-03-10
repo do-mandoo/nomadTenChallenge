@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import MovieItem from '../components/MovieItem';
+import { useParams } from 'react-router-dom';
+import styles from '../MovieApp.module.css';
+import DetailItem from '../components/DetailItem';
 
 const Detail = () => {
   const [loading, setLoading] = useState(true);
@@ -10,31 +11,33 @@ const Detail = () => {
 
   const getMovie = async () => {
     const json = await (
-      await fetch(`https://yts.mx/api/v2/movie_details.json?movie_id=${id}`)
+      await fetch(`https://marvel-proxy.nomadcoders.workers.dev/v1/public/characters/${id}`)
     ).json();
-    setDetails(json.data.movie);
+    setDetails(json.data.results);
     setLoading(false);
   };
-  console.log(details, 'de');
+  console.log(id, 'de');
 
   useEffect(() => {
     getMovie();
   }, []);
 
   return (
-    <div>
+    <div className={styles.background}>
       {loading ? (
         <h1>Loading...</h1>
       ) : (
-        <div>
-          <h1>{details?.title}</h1>
-          <MovieItem
-            coverImg={details.medium_cover_image}
-            title={details.title}
-            runtime={details.runtime}
-            genres={details.genres}
-          />
-          <Link to='/'>go home</Link>
+        <div className={styles.detailContainer}>
+          {details.map(item => (
+            <div key={item.id}>
+              <DetailItem
+                name={item.name}
+                thumbnail={item.thumbnail}
+                seriesItems={item.series.items}
+                comicsItems={item.comics.items}
+              />
+            </div>
+          ))}
         </div>
       )}
     </div>

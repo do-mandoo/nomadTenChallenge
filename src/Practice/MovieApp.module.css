@@ -1,0 +1,81 @@
+/* 중복적용 */
+.background {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loading {
+  text-align: center;
+}
+.homeBoxWrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+ul {
+  padding-right: 10px;
+}
+ul > li {
+  text-align: start;
+}
+/* detail-style */
+.detailContainer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color: white;
+}
+/* detailItem-style */
+.detailItemWrap {
+  display: flex;
+  flex-direction: column;
+}
+.detailImgListBox {
+  display: flex;
+  border: 1px solid #fff;
+}
+.detailImg {
+  width: 550px;
+  height: auto;
+  /* border: 1px solid #000000; */
+}
+.detailH1font {
+  background-color: rgb(255, 71, 39);
+  padding: 10px;
+  margin: 0px;
+  margin-bottom: 5px;
+}
+.detailLinkfont {
+  display: flex;
+  color: white;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+/* movieItem-style */
+.movieItemWrap {
+  background-color: rgb(0, 0, 0);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.h2font {
+  width: 100%;
+  margin: 0;
+  margin-bottom: 3px;
+  padding: 10px 0;
+  background-color: rgb(255, 71, 39);
+}
+.linkfont {
+  color: white;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.img {
+  width: 350px;
+  height: auto;
+  border: 1px solid #000000;
+}

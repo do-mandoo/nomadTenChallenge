@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import MovieItem from '../components/MovieItem';
+import styles from '../MovieApp.module.css';
 
 const Home = () => {
   const [loading, setLoading] = useState(true);
@@ -7,31 +8,26 @@ const Home = () => {
 
   const getMovies = async () => {
     const json = await (
-      await fetch(`https://yts.mx/api/v2/list_movies.json?minimum_rating=9&sort_by=year`)
+      await fetch(
+        `https://marvel-proxy.nomadcoders.workers.dev/v1/public/characters?limit=50&orderBy=modified&series=24229,1058,2023`
+      )
     ).json();
-    setMovies(json.data.movies);
+    setMovies(json.data.results);
     setLoading(false);
   };
-  console.log(movies, 'home MO');
+  console.log(movies, 'home MO0');
   useEffect(() => {
     getMovies();
   }, []);
 
   return (
-    <div>
+    <div className={styles.background}>
       {loading ? (
-        <h1>Loading...</h1>
+        <h1 className={styles.loading}>Loading...</h1>
       ) : (
-        <div>
+        <div className={styles.homeBoxWrap}>
           {movies.map(item => (
-            <MovieItem
-              key={item.id}
-              id={item.id}
-              coverImg={item.medium_cover_image}
-              title={item.title}
-              runtime={item.runtime}
-              genres={item.genres}
-            />
+            <MovieItem key={item.id} id={item.id} name={item.name} thumbnail={item.thumbnail} />
           ))}
         </div>
       )}

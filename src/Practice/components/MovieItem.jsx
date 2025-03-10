@@ -1,30 +1,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import styles from '../MovieApp.module.css';
 
-const MovieItem = ({ id, coverImg, title, runtime, genres }) => {
+const MovieItem = ({ id, thumbnail, name, seriesItems }) => {
   return (
-    <div>
-      <img src={coverImg} alt={title} />
-      <h2>
-        <Link to={`/movie/${id}`}>{title}</Link>
+    <div className={styles.movieItemWrap}>
+      <h2 className={styles.h2font}>
+        <Link className={styles.linkfont} to={`/character/${id}`}>
+          {name}
+        </Link>
       </h2>
-      <p>runtime: {runtime}</p>
-      <ul>
-        {genres.map(g => (
-          <li key={g}>{g}</li>
-        ))}
-      </ul>
+      <img
+        className={styles.img}
+        src={`${thumbnail.path}.${thumbnail.extension}`}
+        alt='캐릭터 이미지'
+      />
+      {seriesItems?.map(item => (
+        <p>{item.name}</p>
+      ))}
     </div>
   );
 };
 
 MovieItem.propTypes = {
   id: PropTypes.number.isRequired,
-  coverImg: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  runtime: PropTypes.string.isRequired,
-  genres: PropTypes.arrayOf(PropTypes.string).isRequired,
+  thumbnail: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  seriesItems: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default MovieItem;
