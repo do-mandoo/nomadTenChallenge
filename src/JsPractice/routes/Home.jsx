@@ -26,7 +26,7 @@ const Home = () => {
         <h1 className={styles.loading}>Loading...</h1>
       ) : (
         <div className={styles.homeBoxWrap}>
-          {movies.map(item => (
+          {movies?.map(item => (
             <MovieItem key={item.id} id={item.id} name={item.name} thumbnail={item.thumbnail} />
           ))}
         </div>

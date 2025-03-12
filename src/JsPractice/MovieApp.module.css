@@ -18,6 +18,7 @@ ul {
 }
 ul > li {
   text-align: start;
+  line-height: 2;
 }
 h1,
 h2,
@@ -29,6 +30,7 @@ hr {
 }
 a {
   text-decoration: none;
+  color: #000;
 }
 /* detail-style */
 .detailContainer {
@@ -61,7 +63,6 @@ a {
 .detailImgListBox {
   position: relative;
   display: flex;
-  /* border: 1px solid #fff; */
 }
 .liBox {
   background-color: #ffffffd1;
@@ -85,6 +86,13 @@ a {
   font-weight: bold;
   font-size: 22px;
 }
+.detailLinkfont a {
+  padding: 5px 20px 0 20px;
+}
+.detailLinkfont a:hover {
+  color: tomato;
+  font-weight: 700;
+}
 
 /* movieItem-style */
 .movieItemWrap {
@@ -93,6 +101,13 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
+  transition: transform 0.3s ease;
+  border-radius: 5px;
+}
+.movieItemWrap:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8);
+  background-color: rgb(255, 255, 255);
 }
 .h2font {
   width: 100%;
@@ -100,15 +115,15 @@ a {
   margin-bottom: 3px;
   padding: 10px 0;
   background-color: rgb(255, 71, 39);
+  color: #fff;
+  border: 1px solid #000;
+  box-sizing: border-box;
 }
-.linkfont {
-  color: white;
-  font-weight: bold;
-  font-size: 22px;
+.movieItemWrap:hover h2 {
+  border-color: #000;
 }
-
 .img {
   width: 350px;
-  height: auto;
+  height: 350px;
   border: 1px solid #000000;
 }

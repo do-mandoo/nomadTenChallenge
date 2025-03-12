@@ -6,9 +6,9 @@ import styles from '../MovieApp.module.css';
 const DetailItem = ({ name, thumbnail, seriesItems, comicsItems }) => {
   return (
     <div className={styles.detailItemWrap}>
-      <Link className={styles.detailLinkfont} to='/'>
-        &lt;Back
-      </Link>
+      <div className={styles.detailLinkfont}>
+        <Link to='/'>&lt; Go Home</Link>
+      </div>
       <h1 className={styles.detailH1font}>{name}</h1>
       <div className={styles.detailImgListBox}>
         <div className={styles.liBox}>
@@ -38,10 +38,10 @@ const DetailItem = ({ name, thumbnail, seriesItems, comicsItems }) => {
 };
 
 DetailItem.propTypes = {
-  thumbnail: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  comicsItems: PropTypes.arrayOf(PropTypes.string).isRequired,
+  thumbnail: PropTypes.string.isRequired,
   seriesItems: PropTypes.arrayOf(PropTypes.string).isRequired,
+  comicsItems: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default DetailItem;

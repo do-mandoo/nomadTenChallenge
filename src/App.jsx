@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
-import Todo from './Practice/Todo';
-import CoinTracker from './Practice/CoinTracker';
-import MovieApp from './Practice/MovieApp';
+import Todo from './JsPractice/Todo';
+import CoinTracker from './JsPractice/CoinTracker';
+import MovieApp from './JsPractice/MovieApp';
 
 function App() {
   return (
